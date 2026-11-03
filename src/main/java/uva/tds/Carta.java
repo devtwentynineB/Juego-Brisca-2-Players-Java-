@@ -10,7 +10,7 @@ package uva.tds;
  * incluyen los ochos ni los nueves.
  * </p>
  *
- * @author Todos los integrantes del grupo
+ * @author alvacun
  */
 public class Carta {
     private final Palo palo;
@@ -43,6 +43,13 @@ public class Carta {
         return palo;
     }
 
+    /**
+     * Obtiene los puntos de la carta según las reglas de la Brisca. El as
+     * vale 11 puntos, el tres 10, el rey 4, el caballo 3 y la sota 2; el
+     * resto de cartas válidas no aporta puntos.
+     *
+     * @return los puntos asociados al valor de la carta
+     */
     public int getPuntos() {
         return switch (valor) {
             case 1 -> 11;
@@ -54,6 +61,14 @@ public class Carta {
         };
     }
 
+    /**
+     * Obtiene la jerarquía de la carta según las reglas de la Brisca. La
+     * jerarquía 1 corresponde a la carta más fuerte y la 10 a la más débil.
+     * El orden es as, tres, rey, caballo, sota, siete, seis, cinco, cuatro y
+     * dos.
+     *
+     * @return la posición jerárquica de la carta
+     */
     public int getJerarquia() {
         return switch (valor) {
             case 1 -> 1;
