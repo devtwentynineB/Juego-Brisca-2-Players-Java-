@@ -42,4 +42,12 @@ public class Carta {
     public Palo getPalo() {
         return palo;
     }
+
+    public int getPuntos() {
+        return 0;
+    }
+
+    public int getJerarquia() {
+        return 0;
+    }
 }
