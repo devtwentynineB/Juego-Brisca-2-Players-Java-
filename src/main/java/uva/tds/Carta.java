@@ -44,10 +44,29 @@ public class Carta {
     }
 
     public int getPuntos() {
-        return 0;
+        return switch (valor) {
+            case 1 -> 11;
+            case 3 -> 10;
+            case 12 -> 4;
+            case 11 -> 3;
+            case 10 -> 2;
+            default -> 0;
+        };
     }
 
     public int getJerarquia() {
-        return 0;
+        return switch (valor) {
+            case 1 -> 1;
+            case 3 -> 2;
+            case 12 -> 3;
+            case 11 -> 4;
+            case 10 -> 5;
+            case 7 -> 6;
+            case 6 -> 7;
+            case 5 -> 8;
+            case 4 -> 9;
+            case 2 -> 10;
+            default -> 0;
+        };
     }
 }
