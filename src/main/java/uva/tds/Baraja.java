@@ -60,4 +60,8 @@ public class Baraja {
     public Carta getTriunfo() {
         return triunfo;
     }
+
+    public Carta robarCarta() {
+        return null;
+    }
 }
