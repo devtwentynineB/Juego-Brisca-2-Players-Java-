@@ -1,5 +1,6 @@
 package uva.tds;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,6 +10,7 @@ import java.util.List;
  */
 public class Jugador {
     private String nombre;
+    private List<Carta> mano;
 
     /**
      * Crea un jugador con el nombre indicado.
@@ -23,6 +25,7 @@ public class Jugador {
         }
 
         this.nombre = nombre;
+        this.mano = new ArrayList<>();
     }
 
     /**
@@ -35,13 +38,19 @@ public class Jugador {
     }
 
     public void recibirCarta(Carta carta) {
+        mano.add(carta);
     }
 
     public Carta jugarCarta(Carta carta) {
-        return null;
+        if (!mano.contains(carta)) {
+            throw new IllegalArgumentException("La carta no está en la mano del jugador");
+        }
+
+        mano.remove(carta);
+        return carta;
     }
 
     public List<Carta> getMano() {
-        return null;
+        return mano;
     }
 }
