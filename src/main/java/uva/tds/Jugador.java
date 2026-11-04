@@ -37,10 +37,23 @@ public class Jugador {
         return nombre;
     }
 
+    /**
+     * Añade una carta a la mano del jugador.
+     *
+     * @param carta carta que se añade a la mano
+     */
     public void recibirCarta(Carta carta) {
         mano.add(carta);
     }
 
+    /**
+     * Elimina y devuelve una carta de la mano del jugador.
+     *
+     * @param carta carta que se quiere jugar
+     * @return carta jugada
+     * @throws IllegalArgumentException si el jugador intenta jugar una carta
+     *                                  que no tiene en la mano
+     */
     public Carta jugarCarta(Carta carta) {
         if (!mano.contains(carta)) {
             throw new IllegalArgumentException("La carta no está en la mano del jugador");
@@ -50,6 +63,11 @@ public class Jugador {
         return carta;
     }
 
+    /**
+     * Obtiene las cartas que tiene actualmente el jugador en su mano.
+     *
+     * @return lista de cartas de la mano
+     */
     public List<Carta> getMano() {
         return mano;
     }
