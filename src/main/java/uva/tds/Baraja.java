@@ -61,6 +61,12 @@ public class Baraja {
         return triunfo;
     }
 
+    /**
+     * Extrae y devuelve la primera carta disponible de la baraja.
+     *
+     * @return carta extraída de la baraja
+     * @throws IllegalStateException si el mazo está vacío
+     */
     public Carta robarCarta() {
         if (cartas.isEmpty()) {
             throw new IllegalStateException("No quedan cartas en la baraja");
