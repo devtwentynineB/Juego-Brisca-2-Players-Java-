@@ -62,6 +62,10 @@ public class Baraja {
     }
 
     public Carta robarCarta() {
-        return null;
+        if (cartas.isEmpty()) {
+            throw new IllegalStateException("No quedan cartas en la baraja");
+        }
+
+        return cartas.remove(0);
     }
 }
