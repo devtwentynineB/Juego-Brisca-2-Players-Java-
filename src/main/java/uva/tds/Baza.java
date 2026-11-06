@@ -10,4 +10,7 @@ public class Baza {
             throw new IllegalArgumentException("El palo de triunfo no puede ser nulo");
         }
     }
+
+    public void jugar(Jugador jugador, Carta carta) {
+    }
 }
