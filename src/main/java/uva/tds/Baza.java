@@ -9,11 +9,13 @@ public class Baza {
     private Carta carta1;
     private Jugador jugador2;
     private Carta carta2;
+    private final Palo triunfo;
 
     public Baza(Palo triunfo) {
         if (triunfo == null) {
             throw new IllegalArgumentException("El palo de triunfo no puede ser nulo");
         }
+        this.triunfo = triunfo;
     }
 
     public void jugar(Jugador jugador, Carta carta) {
@@ -42,6 +44,14 @@ public class Baza {
     public Jugador getGanador() {
         if (!estaCompleta()) {
             throw new IllegalStateException("La baza no está completa");
+        }
+        boolean primeraTriunfo = carta1.getPalo() == triunfo;
+        boolean segundaTriunfo = carta2.getPalo() == triunfo;
+        if (primeraTriunfo && !segundaTriunfo) {
+            return jugador1;
+        }
+        if (!primeraTriunfo && segundaTriunfo) {
+            return jugador2;
         }
         return null;
     }
