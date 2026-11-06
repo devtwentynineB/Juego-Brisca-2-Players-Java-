@@ -38,4 +38,8 @@ public class Baza {
     public boolean estaCompleta() {
         return carta2 != null;
     }
+
+    public Jugador getGanador() {
+        return null;
+    }
 }

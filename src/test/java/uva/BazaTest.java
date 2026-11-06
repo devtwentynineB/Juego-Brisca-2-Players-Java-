@@ -79,4 +79,19 @@ public class BazaTest {
             baza.jugar(ana, new Carta(Palo.COPAS, 2));
         });
     }
+
+    @Test 
+    void getGanadorSinCartasJugadasLanzaExcepcion() {
+        assertThrows(IllegalStateException.class, () -> {
+            baza.getGanador();
+        });
+    }
+
+    @Test 
+    void getGanadorConUnaSolaCartaLanzaExcepcion() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
+        assertThrows(IllegalStateException.class, () -> {
+            baza.getGanador();
+        });
+    }
 }
