@@ -1,5 +1,6 @@
 package uva;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -80,18 +81,32 @@ public class BazaTest {
         });
     }
 
-    @Test 
+    @Test
     void getGanadorSinCartasJugadasLanzaExcepcion() {
         assertThrows(IllegalStateException.class, () -> {
             baza.getGanador();
         });
     }
 
-    @Test 
+    @Test
     void getGanadorConUnaSolaCartaLanzaExcepcion() {
         baza.jugar(ana, new Carta(Palo.COPAS, 1));
         assertThrows(IllegalStateException.class, () -> {
             baza.getGanador();
         });
+    }
+
+    @Test
+    void soloLaSegundacartaEsTriunfoGanaLaSegunda() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
+        baza.jugar(luis, new Carta(Palo.OROS, 2));
+        assertEquals(luis, baza.getGanador());
+    }
+
+    @Test
+    void soloLaPrimeraCartaTriunfoGanaLaPrimera() {
+        baza.jugar(ana, new Carta(Palo.OROS, 2));
+        baza.jugar(luis, new Carta(Palo.COPAS, 1));
+        assertEquals(ana, baza.getGanador());
     }
 }
