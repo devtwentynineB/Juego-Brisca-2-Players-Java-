@@ -34,7 +34,7 @@ public class BazaTest {
     @Test
     void jugarConJugadorNuloLanzaExcepcion() {
         assertThrows(IllegalArgumentException.class, () -> {
-            baza.jugar(null, new Carta(Palo.OROS, 1));
+            baza.jugar(null, new Carta(Palo.COPAS, 1));
         });
     }
 
@@ -52,7 +52,7 @@ public class BazaTest {
 
     @Test
     void bazaConUnaCartaNoEstaCompleta() {
-        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
         assertFalse(baza.estaCompleta());
     }
 
@@ -65,16 +65,16 @@ public class BazaTest {
 
     @Test
     void jugarUnaTercerCartaLanzaExcepcion() {
-        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
         baza.jugar(luis, new Carta(Palo.COPAS, 2));
-        assertThrows(IllegalArgumentException.class, () -> {
-            baza.jugar(ana, new Carta(Palo.ESPADAS, 3));
+        assertThrows(IllegalStateException.class, () -> {
+            baza.jugar(ana, new Carta(Palo.COPAS, 3));
         });
     }
 
     @Test
     void jugarDosVecesELMismoJugadorLanzaExcepcion() {
-        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
         assertThrows(IllegalArgumentException.class, () -> {
             baza.jugar(ana, new Carta(Palo.COPAS, 2));
         });
