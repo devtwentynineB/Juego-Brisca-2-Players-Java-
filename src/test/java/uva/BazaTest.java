@@ -1,6 +1,8 @@
 package uva;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,11 +15,13 @@ import uva.tds.Palo;
 public class BazaTest {
     private Baza baza;
     private Jugador ana;
+    private Jugador luis;
 
     @BeforeEach
     void setUp() {
         baza = new Baza(Palo.OROS);
         ana = new Jugador("Ana");
+        luis = new Jugador("Luis");
     }
 
     @Test
@@ -38,6 +42,41 @@ public class BazaTest {
     void jugarConCartaNulaLanzaExcepcion() {
         assertThrows(IllegalArgumentException.class, () -> {
             baza.jugar(ana, null);
+        });
+    }
+
+    @Test
+    void bazaRecienCreadoNoEstaCompleta() {
+        assertFalse(baza.estaCompleta());
+    }
+
+    @Test
+    void bazaConUnaCartaNoEstaCompleta() {
+        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        assertFalse(baza.estaCompleta());
+    }
+
+    @Test
+    void bazaConDosCartasEstaCompleta() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
+        baza.jugar(luis, new Carta(Palo.COPAS, 2));
+        assertTrue(baza.estaCompleta());
+    }
+
+    @Test
+    void jugarUnaTercerCartaLanzaExcepcion() {
+        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        baza.jugar(luis, new Carta(Palo.COPAS, 2));
+        assertThrows(IllegalArgumentException.class, () -> {
+            baza.jugar(ana, new Carta(Palo.ESPADAS, 3));
+        });
+    }
+
+    @Test
+    void jugarDosVecesELMismoJugadorLanzaExcepcion() {
+        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        assertThrows(IllegalArgumentException.class, () -> {
+            baza.jugar(ana, new Carta(Palo.COPAS, 2));
         });
     }
 }
