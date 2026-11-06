@@ -40,6 +40,9 @@ public class Baza {
     }
 
     public Jugador getGanador() {
+        if (!estaCompleta()) {
+            throw new IllegalStateException("La baza no está completa");
+        }
         return null;
     }
 }
