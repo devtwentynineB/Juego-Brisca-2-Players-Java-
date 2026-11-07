@@ -109,4 +109,46 @@ public class BazaTest {
         baza.jugar(luis, new Carta(Palo.COPAS, 1));
         assertEquals(ana, baza.getGanador());
     }
+
+    @Test
+    void mismoPaloSinTriunfoGanaLaSegundaSiEsMasFuerte() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 3)); 
+        baza.jugar(luis, new Carta(Palo.COPAS, 1)); 
+        assertEquals(luis, baza.getGanador());
+    }
+
+    @Test
+    void mismoPaloSinTriunfoGanaLaPrimeraSiEsMasFuerte() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
+        baza.jugar(luis, new Carta(Palo.COPAS, 3));
+        assertEquals(ana, baza.getGanador());
+    }
+
+    @Test
+    void ambasTriunfoGanaLaSegundaSiEsMasFuerte() {
+        baza.jugar(ana, new Carta(Palo.OROS, 7));
+        baza.jugar(luis, new Carta(Palo.OROS, 1));
+        assertEquals(luis, baza.getGanador());
+    }
+
+    @Test
+    void ambasTriunfoGanaLaPrimeraSiEsMasFuerte() {
+        baza.jugar(ana, new Carta(Palo.OROS, 1));
+        baza.jugar(luis, new Carta(Palo.OROS, 7));
+        assertEquals(ana, baza.getGanador());
+    }
+
+    @Test
+    void cuatroGanaADosDelMismoPalo() { 
+        baza.jugar(ana, new Carta(Palo.COPAS, 2));
+        baza.jugar(luis, new Carta(Palo.COPAS, 4));
+        assertEquals(luis, baza.getGanador());
+    }
+
+    @Test
+    void sieteGanaASeisDelMismoPalo() { 
+        baza.jugar(ana, new Carta(Palo.COPAS, 6));
+        baza.jugar(luis, new Carta(Palo.COPAS, 7));
+        assertEquals(luis, baza.getGanador());
+    }
 }
