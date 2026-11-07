@@ -34,5 +34,8 @@ public class Partida {
         if(jugador != jugador1 && jugador != jugador2) {
             throw new IllegalArgumentException("El jugador no pertenece a la partida");
         }
+        if(jugador != getJugadorEnTurno()) {
+            throw new IllegalStateException("No es el turno de este jugador");
+        }
     }
 }
