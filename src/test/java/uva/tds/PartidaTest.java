@@ -2,6 +2,7 @@ package uva.tds;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -101,5 +102,32 @@ class PartidaTest {
         assertThrows(IllegalArgumentException.class,
                 () -> partida.JugarCarta(ana, cartaLuis));
         assertEquals(List.of(cartaAna), ana.getMano());
+    }
+
+    @Test
+    void jugarUnaCartaValidaLaQuitaDeLaManoDelJugador() {
+        partida.JugarCarta(ana, cartaAna);
+        assertEquals(List.of(), ana.getMano());
+    }
+
+    @Test
+    void trasJugarElPrimerJugadorElTurnoEsDelOtro() {
+        partida.JugarCarta(ana, cartaAna);
+        assertEquals(luis, partida.getJugadorEnTurno());
+    }
+
+    @Test
+    void elSegundoJugadorPuedeJugarTrasElPrimero() {
+        partida.JugarCarta(ana, cartaAna);
+        assertDoesNotThrow(() -> partida.JugarCarta(luis, cartaLuis));
+    }
+
+    @Test
+    void elMismoJugadorNoPuedeJugarDosVecesSeguidas() {
+        Carta otraCarta = new Carta(Palo.BASTOS, 4);
+        ana.recibirCarta(otraCarta);
+        partida.JugarCarta(ana, cartaAna);
+        assertThrows(IllegalStateException.class,
+                () -> partida.JugarCarta(ana, otraCarta));
     }
 }
