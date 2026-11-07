@@ -27,5 +27,6 @@ public class Partida {
     public Jugador getJugadorEnTurno() {
         return jugador1;
     }
-
+    public void JugarCarta(Jugador jugador, Carta carta) {
+    }
 }

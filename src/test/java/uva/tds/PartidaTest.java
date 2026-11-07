@@ -10,11 +10,15 @@ class PartidaTest {
 
     private Jugador ana;
     private Jugador luis;
+    private Jugador pedro;
+    private Partida partida;
 
     @BeforeEach
     void setUp() {
         ana = new Jugador("Ana");
         luis = new Jugador("Luis");
+        pedro = new Jugador("Pedro");
+        partida = new Partida(ana, luis);
     }
 
     @Test
@@ -43,5 +47,26 @@ class PartidaTest {
     void enUnaPartidaNuevaComienzaElPrimerJugador() {
         Partida partida = new Partida(ana, luis);
         assertEquals(ana, partida.getJugadorEnTurno());
+    }
+
+    @Test
+    void jugarCartaConJugadorNuloLanzaExcepcion() {
+        Carta carta = new Carta(Palo.COPAS, 1);
+        assertThrows(IllegalArgumentException.class,
+                () -> partida.JugarCarta(null, carta));
+    }
+
+    @Test
+    void jugarCartaConCartaNulaLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class,
+                () -> partida.JugarCarta(ana, null));
+    }
+
+    @Test
+    void jugarCartaDeUnJugadorAjenoALaPartidaLanzaExcepcion() {
+        Carta carta = new Carta(Palo.COPAS, 1);
+        pedro.recibirCarta(carta);
+        assertThrows(IllegalArgumentException.class,
+                () -> partida.JugarCarta(pedro, carta));
     }
 }
