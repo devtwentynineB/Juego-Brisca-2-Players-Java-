@@ -130,4 +130,29 @@ class PartidaTest {
         assertThrows(IllegalStateException.class,
                 () -> partida.JugarCarta(ana, otraCarta));
     }
+
+    @Test
+    void alCompletarseLaBazaComienzaLaSiguienteElJugadorQueJugoSegundo() {
+        partida.JugarCarta(ana, cartaAna);
+        partida.JugarCarta(luis, cartaLuis);
+        assertEquals(luis, partida.getJugadorEnTurno());
+    }
+
+    @Test
+    void elJugadorQueComienzaLaBazaSeAlternaEnBazasSucesivas() {
+        Carta segundaAna = new Carta(Palo.BASTOS, 2);
+        Carta segundaLuis = new Carta(Palo.COPAS, 5);
+        ana.recibirCarta(segundaAna);
+        luis.recibirCarta(segundaLuis);
+        
+        partida.JugarCarta(ana, cartaAna);
+        partida.JugarCarta(luis, cartaLuis);
+
+        assertEquals(luis, partida.getJugadorEnTurno());
+        partida.JugarCarta(luis, segundaLuis);
+        assertEquals(ana, partida.getJugadorEnTurno());
+        partida.JugarCarta(ana, segundaAna);
+
+        assertEquals(ana, partida.getJugadorEnTurno());
+    }
 }
