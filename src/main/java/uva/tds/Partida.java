@@ -37,5 +37,8 @@ public class Partida {
         if(jugador != getJugadorEnTurno()) {
             throw new IllegalStateException("No es el turno de este jugador");
         }
+        if(!jugador.getMano().contains(carta)) {
+            throw new IllegalArgumentException("La carta no esta en la mano del jugador");
+        }
     }
 }
