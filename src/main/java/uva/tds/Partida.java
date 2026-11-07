@@ -28,5 +28,11 @@ public class Partida {
         return jugador1;
     }
     public void JugarCarta(Jugador jugador, Carta carta) {
+        if(jugador == null || carta == null) {
+            throw new IllegalArgumentException("El jugador y la carta no pueden ser nulos");
+        }
+        if(jugador != jugador1 && jugador != jugador2) {
+            throw new IllegalArgumentException("El jugador no pertenece a la partida");
+        }
     }
 }
