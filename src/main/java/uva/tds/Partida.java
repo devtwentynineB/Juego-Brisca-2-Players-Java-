@@ -2,19 +2,30 @@ package uva.tds;
 
 public class Partida {
 
-    public Partida(Jugador Jugador1, Jugador Jugador2) {
+    private final Jugador jugador1;
+    private final Jugador jugador2;
+
+    public Partida(Jugador jugador1, Jugador jugador2) {
+        if (jugador1 == null || jugador2 == null) {
+            throw new IllegalArgumentException("Los jugadores no pueden ser nulos");
+        }
+        if (jugador1 == jugador2) {
+            throw new IllegalArgumentException("Los dos jugadores deben ser distintos");
+        }
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
     }
 
     public Jugador getJugador1() {
-        return null;
+        return jugador1;
     }
 
     public Jugador getJugador2() {
-        return null;
+        return jugador2;
     }
 
     public Jugador getJugadorEnTurno() {
-        return null;
+        return jugador1;
     }
 
 }
