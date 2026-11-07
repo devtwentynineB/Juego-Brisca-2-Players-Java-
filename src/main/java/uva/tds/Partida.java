@@ -5,6 +5,7 @@ public class Partida {
     private final Jugador jugador1;
     private final Jugador jugador2;
     private Jugador jugadorEnTurno;
+    private int cartasJugadasEnBaza;
 
     public Partida(Jugador jugador1, Jugador jugador2) {
         if (jugador1 == null || jugador2 == null) {
@@ -29,20 +30,26 @@ public class Partida {
     public Jugador getJugadorEnTurno() {
         return jugadorEnTurno;
     }
+
     public void JugarCarta(Jugador jugador, Carta carta) {
-        if(jugador == null || carta == null) {
+        if (jugador == null || carta == null) {
             throw new IllegalArgumentException("El jugador y la carta no pueden ser nulos");
         }
-        if(jugador != jugador1 && jugador != jugador2) {
+        if (jugador != jugador1 && jugador != jugador2) {
             throw new IllegalArgumentException("El jugador no pertenece a la partida");
         }
-        if(jugador != getJugadorEnTurno()) {
+        if (jugador != getJugadorEnTurno()) {
             throw new IllegalStateException("No es el turno de este jugador");
         }
-        if(!jugador.getMano().contains(carta)) {
+        if (!jugador.getMano().contains(carta)) {
             throw new IllegalArgumentException("La carta no esta en la mano del jugador");
         }
         jugador.jugarCarta(carta);
-        jugadorEnTurno = (jugador == jugador1) ? jugador2 : jugador1;
+        cartasJugadasEnBaza++;
+        if (cartasJugadasEnBaza == 2) {
+            cartasJugadasEnBaza = 0;
+        } else {
+            jugadorEnTurno = (jugador == jugador1) ? jugador2 : jugador1;
+        }
     }
 }
