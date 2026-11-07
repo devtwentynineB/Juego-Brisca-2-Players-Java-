@@ -61,13 +61,13 @@ class PartidaTest {
     void jugarCartaConJugadorNuloLanzaExcepcion() {
         Carta carta = new Carta(Palo.COPAS, 1);
         assertThrows(IllegalArgumentException.class,
-                () -> partida.JugarCarta(null, carta));
+                () -> partida.jugarCarta(null, carta));
     }
 
     @Test
     void jugarCartaConCartaNulaLanzaExcepcion() {
         assertThrows(IllegalArgumentException.class,
-                () -> partida.JugarCarta(ana, null));
+                () -> partida.jugarCarta(ana, null));
     }
 
     @Test
@@ -75,66 +75,66 @@ class PartidaTest {
         Carta carta = new Carta(Palo.COPAS, 1);
         pedro.recibirCarta(carta);
         assertThrows(IllegalArgumentException.class,
-                () -> partida.JugarCarta(pedro, carta));
+                () -> partida.jugarCarta(pedro, carta));
     }
 
     @Test
     void jugarFueraDeTurnoLanzaExcepcion() {
         assertThrows(IllegalStateException.class,
-                () -> partida.JugarCarta(luis, cartaLuis));
+                () -> partida.jugarCarta(luis, cartaLuis));
     }
 
     @Test
     void jugarFueraDeTurnoNoModificaLaManoDelJugador() {
         assertThrows(IllegalStateException.class,
-                () -> partida.JugarCarta(luis, cartaLuis));
+                () -> partida.jugarCarta(luis, cartaLuis));
         assertEquals(List.of(cartaLuis), luis.getMano());
     }
 
     @Test
     void jugarUnaCartaQueNoEstaEnLaManoLanzaExcepcion() {
         assertThrows(IllegalArgumentException.class,
-                () -> partida.JugarCarta(ana, cartaLuis));
+                () -> partida.jugarCarta(ana, cartaLuis));
     }
 
     @Test
     void jugarUnaCartaQueNoEstaEnLaManoNoModificaLaMano() {
         assertThrows(IllegalArgumentException.class,
-                () -> partida.JugarCarta(ana, cartaLuis));
+                () -> partida.jugarCarta(ana, cartaLuis));
         assertEquals(List.of(cartaAna), ana.getMano());
     }
 
     @Test
     void jugarUnaCartaValidaLaQuitaDeLaManoDelJugador() {
-        partida.JugarCarta(ana, cartaAna);
+        partida.jugarCarta(ana, cartaAna);
         assertEquals(List.of(), ana.getMano());
     }
 
     @Test
     void trasJugarElPrimerJugadorElTurnoEsDelOtro() {
-        partida.JugarCarta(ana, cartaAna);
+        partida.jugarCarta(ana, cartaAna);
         assertEquals(luis, partida.getJugadorEnTurno());
     }
 
     @Test
     void elSegundoJugadorPuedeJugarTrasElPrimero() {
-        partida.JugarCarta(ana, cartaAna);
-        assertDoesNotThrow(() -> partida.JugarCarta(luis, cartaLuis));
+        partida.jugarCarta(ana, cartaAna);
+        assertDoesNotThrow(() -> partida.jugarCarta(luis, cartaLuis));
     }
 
     @Test
     void elMismoJugadorNoPuedeJugarDosVecesSeguidas() {
         Carta otraCarta = new Carta(Palo.BASTOS, 4);
         ana.recibirCarta(otraCarta);
-        partida.JugarCarta(ana, cartaAna);
+        partida.jugarCarta(ana, cartaAna);
         assertThrows(IllegalStateException.class,
-                () -> partida.JugarCarta(ana, otraCarta));
+                () -> partida.jugarCarta(ana, otraCarta));
     }
 
     @Test
     void alCompletarseLaBazaComienzaLaSiguienteElJugadorQueJugoSegundo() {
-        partida.JugarCarta(ana, cartaAna);
-        partida.JugarCarta(luis, cartaLuis);
+        partida.jugarCarta(ana, cartaAna);
+        partida.jugarCarta(luis, cartaLuis);
         assertEquals(luis, partida.getJugadorEnTurno());
     }
 
@@ -144,14 +144,14 @@ class PartidaTest {
         Carta segundaLuis = new Carta(Palo.COPAS, 5);
         ana.recibirCarta(segundaAna);
         luis.recibirCarta(segundaLuis);
-        
-        partida.JugarCarta(ana, cartaAna);
-        partida.JugarCarta(luis, cartaLuis);
+
+        partida.jugarCarta(ana, cartaAna);
+        partida.jugarCarta(luis, cartaLuis);
 
         assertEquals(luis, partida.getJugadorEnTurno());
-        partida.JugarCarta(luis, segundaLuis);
+        partida.jugarCarta(luis, segundaLuis);
         assertEquals(ana, partida.getJugadorEnTurno());
-        partida.JugarCarta(ana, segundaAna);
+        partida.jugarCarta(ana, segundaAna);
 
         assertEquals(ana, partida.getJugadorEnTurno());
     }

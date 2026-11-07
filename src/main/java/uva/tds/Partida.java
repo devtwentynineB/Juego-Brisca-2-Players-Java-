@@ -2,6 +2,8 @@ package uva.tds;
 
 public class Partida {
 
+    private static final int CARTAS_POR_BAZA = 2;
+
     private final Jugador jugador1;
     private final Jugador jugador2;
     private Jugador jugadorEnTurno;
@@ -31,25 +33,33 @@ public class Partida {
         return jugadorEnTurno;
     }
 
-    public void JugarCarta(Jugador jugador, Carta carta) {
+    public void jugarCarta(Jugador jugador, Carta carta) {
+        validarJugada(jugador, carta);
+        jugador.jugarCarta(carta);
+        cartasJugadasEnBaza++;
+        if (cartasJugadasEnBaza == CARTAS_POR_BAZA) {
+            cartasJugadasEnBaza = 0;
+        } else {
+            jugadorEnTurno = getOponente(jugador);
+        }
+    }
+
+    private void validarJugada(Jugador jugador, Carta carta) {
         if (jugador == null || carta == null) {
             throw new IllegalArgumentException("El jugador y la carta no pueden ser nulos");
         }
         if (jugador != jugador1 && jugador != jugador2) {
             throw new IllegalArgumentException("El jugador no pertenece a la partida");
         }
-        if (jugador != getJugadorEnTurno()) {
+        if (jugador != jugadorEnTurno) {
             throw new IllegalStateException("No es el turno de este jugador");
         }
         if (!jugador.getMano().contains(carta)) {
             throw new IllegalArgumentException("La carta no esta en la mano del jugador");
         }
-        jugador.jugarCarta(carta);
-        cartasJugadasEnBaza++;
-        if (cartasJugadasEnBaza == 2) {
-            cartasJugadasEnBaza = 0;
-        } else {
-            jugadorEnTurno = (jugador == jugador1) ? jugador2 : jugador1;
-        }
+    }
+
+    private Jugador getOponente(Jugador jugador) {
+        return jugador == jugador1 ? jugador2 : jugador1;
     }
 }
