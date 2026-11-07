@@ -89,4 +89,17 @@ class PartidaTest {
                 () -> partida.JugarCarta(luis, cartaLuis));
         assertEquals(List.of(cartaLuis), luis.getMano());
     }
+
+    @Test
+    void jugarUnaCartaQueNoEstaEnLaManoLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class,
+                () -> partida.JugarCarta(ana, cartaLuis));
+    }
+
+    @Test
+    void jugarUnaCartaQueNoEstaEnLaManoNoModificaLaMano() {
+        assertThrows(IllegalArgumentException.class,
+                () -> partida.JugarCarta(ana, cartaLuis));
+        assertEquals(List.of(cartaAna), ana.getMano());
+    }
 }
