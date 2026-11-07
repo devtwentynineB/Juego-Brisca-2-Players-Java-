@@ -112,8 +112,8 @@ public class BazaTest {
 
     @Test
     void mismoPaloSinTriunfoGanaLaSegundaSiEsMasFuerte() {
-        baza.jugar(ana, new Carta(Palo.COPAS, 3)); 
-        baza.jugar(luis, new Carta(Palo.COPAS, 1)); 
+        baza.jugar(ana, new Carta(Palo.COPAS, 3));
+        baza.jugar(luis, new Carta(Palo.COPAS, 1));
         assertEquals(luis, baza.getGanador());
     }
 
@@ -139,16 +139,37 @@ public class BazaTest {
     }
 
     @Test
-    void cuatroGanaADosDelMismoPalo() { 
+    void cuatroGanaADosDelMismoPalo() {
         baza.jugar(ana, new Carta(Palo.COPAS, 2));
         baza.jugar(luis, new Carta(Palo.COPAS, 4));
         assertEquals(luis, baza.getGanador());
     }
 
     @Test
-    void sieteGanaASeisDelMismoPalo() { 
+    void sieteGanaASeisDelMismoPalo() {
         baza.jugar(ana, new Carta(Palo.COPAS, 6));
         baza.jugar(luis, new Carta(Palo.COPAS, 7));
+        assertEquals(luis, baza.getGanador());
+    }
+
+    @Test
+    void distintoPaloSinTriunfoGanaLaPrimeraAunqueLaSegundaSeaMasFuerte() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 2)); // dois de copas, o mais fraco
+        baza.jugar(luis, new Carta(Palo.ESPADAS, 1)); // as de espadas, o mais forte
+        assertEquals(ana, baza.getGanador());
+    }
+
+    @Test
+    void distintoPaloSinTriunfoGanaLaPrimeraSiEsMasFuerte() {
+        baza.jugar(ana, new Carta(Palo.COPAS, 1));
+        baza.jugar(luis, new Carta(Palo.ESPADAS, 2));
+        assertEquals(ana, baza.getGanador());
+    }
+
+    @Test
+    void distintoPaloSinTriunfoGanaElQueJuegaPrimeroSiSeInvierteElOrden() {
+        baza.jugar(luis, new Carta(Palo.BASTOS, 1));
+        baza.jugar(ana, new Carta(Palo.COPAS, 3));
         assertEquals(luis, baza.getGanador());
     }
 }
