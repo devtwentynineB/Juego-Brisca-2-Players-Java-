@@ -4,6 +4,7 @@ public class Partida {
 
     private final Jugador jugador1;
     private final Jugador jugador2;
+    private Jugador jugadorEnTurno;
 
     public Partida(Jugador jugador1, Jugador jugador2) {
         if (jugador1 == null || jugador2 == null) {
@@ -14,6 +15,7 @@ public class Partida {
         }
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
+        this.jugadorEnTurno = jugador1;
     }
 
     public Jugador getJugador1() {
@@ -25,7 +27,7 @@ public class Partida {
     }
 
     public Jugador getJugadorEnTurno() {
-        return jugador1;
+        return jugadorEnTurno;
     }
     public void JugarCarta(Jugador jugador, Carta carta) {
         if(jugador == null || carta == null) {
@@ -40,5 +42,7 @@ public class Partida {
         if(!jugador.getMano().contains(carta)) {
             throw new IllegalArgumentException("La carta no esta en la mano del jugador");
         }
+        jugador.jugarCarta(carta);
+        jugadorEnTurno = (jugador == jugador1) ? jugador2 : jugador1;
     }
 }
