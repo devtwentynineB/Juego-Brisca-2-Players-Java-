@@ -43,19 +43,24 @@ public class Baza {
 
     public Jugador getGanador() {
         if (!estaCompleta()) {
-            throw new IllegalStateException("La baza no está completa");
+            throw new IllegalStateException("La baza no esta completa");
         }
-        boolean primeraTriunfo = carta1.getPalo() == triunfo;
-        boolean segundaTriunfo = carta2.getPalo() == triunfo;
-        if (primeraTriunfo && !segundaTriunfo) {
-            return jugador1;
-        }
-        if (!primeraTriunfo && segundaTriunfo) {
-            return jugador2;
+        return ganaLaSegundaCarta() ? jugador2 : jugador1;
+    }
+
+    private boolean ganaLaSegundaCarta() {
+        boolean primeraTriunfo = esTriunfo(carta1);
+        boolean segundaTriunfo = esTriunfo(carta2);
+        if (primeraTriunfo != segundaTriunfo) {
+            return segundaTriunfo;
         }
         if (carta1.getPalo() == carta2.getPalo()) {
-            return carta2.getJerarquia() < carta1.getJerarquia() ? jugador2 : jugador1;
+            return carta2.getJerarquia() < carta1.getJerarquia();
         }
-        return jugador1;
+        return false;
+    }
+
+    private boolean esTriunfo(Carta carta) {
+        return carta.getPalo() == triunfo;
     }
 }
