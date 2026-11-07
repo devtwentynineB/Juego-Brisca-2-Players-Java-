@@ -5,12 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.List;
 
 class PartidaTest {
 
     private Jugador ana;
     private Jugador luis;
     private Jugador pedro;
+    private Carta cartaAna;
+    private Carta cartaLuis;
     private Partida partida;
 
     @BeforeEach
@@ -18,6 +21,10 @@ class PartidaTest {
         ana = new Jugador("Ana");
         luis = new Jugador("Luis");
         pedro = new Jugador("Pedro");
+        cartaAna = new Carta(Palo.COPAS, 1);
+        cartaLuis = new Carta(Palo.ESPADAS, 3);
+        ana.recibirCarta(cartaAna);
+        luis.recibirCarta(cartaLuis);
         partida = new Partida(ana, luis);
     }
 
@@ -68,5 +75,18 @@ class PartidaTest {
         pedro.recibirCarta(carta);
         assertThrows(IllegalArgumentException.class,
                 () -> partida.JugarCarta(pedro, carta));
+    }
+
+    @Test
+    void jugarFueraDeTurnoLanzaExcepcion() {
+        assertThrows(IllegalStateException.class,
+                () -> partida.JugarCarta(luis, cartaLuis));
+    }
+
+    @Test
+    void jugarFueraDeTurnoNoModificaLaManoDelJugador() {
+        assertThrows(IllegalStateException.class,
+                () -> partida.JugarCarta(luis, cartaLuis));
+        assertEquals(List.of(cartaLuis), luis.getMano());
     }
 }
