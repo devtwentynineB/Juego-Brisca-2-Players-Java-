@@ -154,8 +154,8 @@ public class BazaTest {
 
     @Test
     void distintoPaloSinTriunfoGanaLaPrimeraAunqueLaSegundaSeaMasFuerte() {
-        baza.jugar(ana, new Carta(Palo.COPAS, 2)); // dois de copas, o mais fraco
-        baza.jugar(luis, new Carta(Palo.ESPADAS, 1)); // as de espadas, o mais forte
+        baza.jugar(ana, new Carta(Palo.COPAS, 2)); 
+        baza.jugar(luis, new Carta(Palo.ESPADAS, 1)); 
         assertEquals(ana, baza.getGanador());
     }
 

@@ -56,6 +56,6 @@ public class Baza {
         if (carta1.getPalo() == carta2.getPalo()) {
             return carta2.getJerarquia() < carta1.getJerarquia() ? jugador2 : jugador1;
         }
-        return null;
+        return jugador1;
     }
 }
