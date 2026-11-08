@@ -10,8 +10,9 @@ import java.util.List;
  *
  * <p>
  * La baraja contiene una carta de cada combinación de los cuatro palos y los
- * valores nominales 1, 2, 3, 4, 5, 6, 7, 10, 11 y 12. Al crear la baraja, sus
- * cartas se mezclan y se selecciona una de ellas como carta de triunfo.
+ * valores nominales 1, 2, 3, 4, 5, 6, 7, 10, 11 y 12. Puede crearse mezclada
+ * al azar o con un orden de cartas predefinido. En ambos casos la última carta
+ * de la baraja es la carta de triunfo, que será la última en robarse.
  * </p>
  *
  * @author alvacun
@@ -22,6 +23,7 @@ public class Baraja {
 
     /** Carta seleccionada como triunfo de la partida. */
     private Carta triunfo;
+    private static final int NUMERO_CARTAS = 40;
 
     /**
      * Crea una baraja española completa, la mezcla y selecciona su carta de
@@ -41,6 +43,33 @@ public class Baraja {
 
         Collections.shuffle(cartas);
         triunfo = cartas.get(cartas.size() - 1);
+    }
+
+    /**
+     * Crea una baraja con las cartas en el orden indicado, sin mezclarlas. La
+     * primera carta de la lista es la primera que se roba y la última es la carta
+     * de triunfo, que será la última en robarse.
+     *
+     * @param cartas lista de 40 cartas, en el orden en que se van a robar
+     * @throws IllegalArgumentException si la lista es nula, si no contiene
+     *                                  exactamente 40 cartas o si alguna de las
+     *                                  cartas es nula
+     */
+
+    public Baraja(List<Carta> cartas) {
+        if (cartas == null) {
+            throw new IllegalArgumentException("La lista de cartas no puede ser nula");
+        }
+        if (cartas.size() != NUMERO_CARTAS) {
+            throw new IllegalArgumentException("La baraja debe tener 40 cartas");
+        }
+        for (Carta carta : cartas) {
+            if (carta == null) {
+                throw new IllegalArgumentException("La baraja no puede contener cartas nulas");
+            }
+        }
+        this.cartas = new ArrayList<>(cartas);
+        this.triunfo = this.cartas.get(this.cartas.size() - 1);
     }
 
     /**
