@@ -117,6 +117,7 @@ public class Partida {
         }
         cartasEnLaMesa.clear();
         bazaActual = new Baza(baraja.getTriunfo().getPalo());
+        robarCartas();
     }
 
     /** Comprueba que la jugada es válida sin modificar el estado de la partida. */
@@ -140,5 +141,11 @@ public class Partida {
 
     private Jugador getOponente(Jugador jugador) {
         return jugador == jugador1 ? jugador2 : jugador1;
+    }
+
+    private void robarCartas() {
+        Jugador primero = jugadorEnTurno;
+        primero.recibirCarta(baraja.robarCarta());
+        getOponente(primero).recibirCarta(baraja.robarCarta());
     }
 }
