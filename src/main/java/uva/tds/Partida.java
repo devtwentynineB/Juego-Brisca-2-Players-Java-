@@ -21,6 +21,7 @@ public class Partida {
     private final Jugador jugador2;
     private Jugador jugadorEnTurno;
     private int cartasJugadasEnBaza;
+    private final Baraja baraja;
 
     /**
      * Crea una partida entre dos jugadores. Comienza el primer jugador.
@@ -32,27 +33,31 @@ public class Partida {
      */
 
     public Partida(Jugador jugador1, Jugador jugador2) {
+        this(jugador1, jugador2, new Baraja());
+    }
+
+    public Partida(Jugador jugador1, Jugador jugador2, Baraja baraja) {
         if (jugador1 == null || jugador2 == null) {
             throw new IllegalArgumentException("Los jugadores no pueden ser nulos");
         }
         if (jugador1 == jugador2) {
             throw new IllegalArgumentException("Los dos jugadores deben ser distintos");
         }
+        if (baraja == null) {
+            throw new IllegalArgumentException("La baraja no puede ser nula");
+        }
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
+        this.baraja = baraja;
         this.jugadorEnTurno = jugador1;
     }
 
-    public Partida(Jugador jugador1, Jugador jugador2, Baraja baraja) {
-        this(jugador1, jugador2);
-    }
-
     public int getCartasRestantes() {
-        return 0;
+        return baraja.getCartasRestantes();
     }
 
     public Carta getTriunfo() {
-        return null;
+        return baraja.getTriunfo();
     }
 
     /**
