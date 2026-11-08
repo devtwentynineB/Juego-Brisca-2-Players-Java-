@@ -22,6 +22,7 @@ public class Baraja {
 
     /** Carta seleccionada como triunfo de la partida. */
     private Carta triunfo;
+    private static final int NUMERO_CARTAS = 40;
 
     /**
      * Crea una baraja española completa, la mezcla y selecciona su carta de
@@ -44,6 +45,17 @@ public class Baraja {
     }
 
     public Baraja(List<Carta> cartas) {
+        if (cartas == null) {
+            throw new IllegalArgumentException("La lista de cartas no puede ser nula");
+        }
+        if (cartas.size() != NUMERO_CARTAS) {
+            throw new IllegalArgumentException("La baraja debe tener 40 cartas");
+        }
+        for (Carta carta : cartas) {
+            if (carta == null) {
+                throw new IllegalArgumentException("La baraja no puede contener cartas nulas");
+            }
+        }
         this.cartas = new ArrayList<>(cartas);
     }
 
