@@ -74,12 +74,26 @@ public class Jugador {
         return mano;
     }
 
+    /**
+     * Añade una carta a las cartas capturadas por el jugador.
+     *
+     * @param carta carta capturada
+     * @throws IllegalArgumentException si la carta es nula
+     */
+
     public void capturar(Carta carta) {
         if (carta == null) {
             throw new IllegalArgumentException("La carta capturada no puede ser nula");
         }
         cartasCapturadas.add(carta);
     }
+
+    /**
+     * Obtiene las cartas capturadas por el jugador, en el orden en que las
+     * capturó. Se devuelve una copia: modificarla no altera las cartas capturadas.
+     *
+     * @return lista con las cartas capturadas
+     */
 
     public List<Carta> getCartasCapturadas() {
         return new ArrayList<>(cartasCapturadas);
