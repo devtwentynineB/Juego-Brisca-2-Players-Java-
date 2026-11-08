@@ -1,5 +1,8 @@
 package uva.tds;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Partida de la Brisca simplificada para dos jugadores. Controla de quién es
  * el turno y valida las cartas que se juegan.
@@ -22,6 +25,8 @@ public class Partida {
     private Jugador jugadorEnTurno;
     private int cartasJugadasEnBaza;
     private final Baraja baraja;
+    private Baza bazaActual;
+    private final List<Carta> cartasEnLaMesa = new ArrayList<>();
 
     /**
      * Crea una partida entre dos jugadores. Comienza el primer jugador.
@@ -50,6 +55,7 @@ public class Partida {
         this.jugador2 = jugador2;
         this.baraja = baraja;
         this.jugadorEnTurno = jugador1;
+        this.bazaActual = new Baza(baraja.getTriunfo().getPalo());
     }
 
     public int getCartasRestantes() {
@@ -90,29 +96,27 @@ public class Partida {
         return jugadorEnTurno;
     }
 
-    /**
-     * Juega una carta de la mano de un jugador. La carta se elimina de su mano.
-     * Tras la primera carta de una baza el turno pasa al otro jugador; al jugar
-     * la segunda carta se completa la baza y la siguiente la comienza el jugador
-     * que jugó en segundo lugar, de modo que el inicio de baza se alterna.
-     *
-     * @param jugador jugador que juega la carta
-     * @param carta   carta que se juega
-     * @throws IllegalArgumentException si el jugador o la carta son nulos, si el
-     *                                  jugador no pertenece a la partida o si la
-     *                                  carta no está en su mano
-     * @throws IllegalStateException    si no es el turno del jugador
-     */
-
     public void jugarCarta(Jugador jugador, Carta carta) {
         validarJugada(jugador, carta);
         jugador.jugarCarta(carta);
+        bazaActual.jugar(jugador, carta);
+        cartasEnLaMesa.add(carta);
         cartasJugadasEnBaza++;
         if (cartasJugadasEnBaza == CARTAS_POR_BAZA) {
             cartasJugadasEnBaza = 0;
+            finalizarBaza();
         } else {
             jugadorEnTurno = getOponente(jugador);
         }
+    }
+
+    private void finalizarBaza() {
+        Jugador ganador = bazaActual.getGanador();
+        for (Carta carta : cartasEnLaMesa) {
+            ganador.capturar(carta);
+        }
+        cartasEnLaMesa.clear();
+        bazaActual = new Baza(baraja.getTriunfo().getPalo());
     }
 
     /** Comprueba que la jugada es válida sin modificar el estado de la partida. */
