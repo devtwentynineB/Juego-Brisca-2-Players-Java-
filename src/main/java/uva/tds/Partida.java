@@ -18,12 +18,9 @@ import java.util.List;
 
 public class Partida {
 
-    private static final int CARTAS_POR_BAZA = 2;
-
     private final Jugador jugador1;
     private final Jugador jugador2;
     private Jugador jugadorEnTurno;
-    private int cartasJugadasEnBaza;
     private final Baraja baraja;
     private Baza bazaActual;
     private final List<Carta> cartasEnLaMesa = new ArrayList<>();
@@ -55,7 +52,7 @@ public class Partida {
         this.jugador2 = jugador2;
         this.baraja = baraja;
         this.jugadorEnTurno = jugador1;
-        this.bazaActual = new Baza(baraja.getTriunfo().getPalo());
+        this.bazaActual = nuevaBaza();
     }
 
     public int getCartasRestantes() {
@@ -101,9 +98,7 @@ public class Partida {
         jugador.jugarCarta(carta);
         bazaActual.jugar(jugador, carta);
         cartasEnLaMesa.add(carta);
-        cartasJugadasEnBaza++;
-        if (cartasJugadasEnBaza == CARTAS_POR_BAZA) {
-            cartasJugadasEnBaza = 0;
+        if (bazaActual.estaCompleta()) {
             finalizarBaza();
         } else {
             jugadorEnTurno = getOponente(jugador);
@@ -116,8 +111,12 @@ public class Partida {
             ganador.capturar(carta);
         }
         cartasEnLaMesa.clear();
-        bazaActual = new Baza(baraja.getTriunfo().getPalo());
+        bazaActual = nuevaBaza();
         robarCartas();
+    }
+
+    private Baza nuevaBaza() {
+        return new Baza(baraja.getTriunfo().getPalo());
     }
 
     /** Comprueba que la jugada es válida sin modificar el estado de la partida. */
