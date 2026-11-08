@@ -145,7 +145,13 @@ public class Partida {
 
     private void robarCartas() {
         Jugador primero = jugadorEnTurno;
-        primero.recibirCarta(baraja.robarCarta());
-        getOponente(primero).recibirCarta(baraja.robarCarta());
+        robarSiQuedanCartas(primero);
+        robarSiQuedanCartas(getOponente(primero));
+    }
+
+    private void robarSiQuedanCartas(Jugador jugador) {
+        if (baraja.getCartasRestantes() > 0) {
+            jugador.recibirCarta(baraja.robarCarta());
+        }
     }
 }
