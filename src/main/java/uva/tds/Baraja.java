@@ -43,6 +43,10 @@ public class Baraja {
         triunfo = cartas.get(cartas.size() - 1);
     }
 
+    public Baraja(List<Carta> cartas) {
+        this.cartas = new ArrayList<>(cartas);
+    }
+
     /**
      * Obtiene el número de cartas que contiene actualmente la baraja.
      *
