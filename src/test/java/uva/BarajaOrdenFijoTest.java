@@ -1,6 +1,8 @@
 package uva;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +55,43 @@ class BarajaOrdenFijoTest {
     void crearBarajaConUnaCartaNulaLanzaExcepcion() {
         cuarentaCartas.set(10, null);
         assertThrows(IllegalArgumentException.class, () -> new Baraja(cuarentaCartas));
+    }
+
+    @Test
+    void barajaConOrdenFijoTiene40Cartas() {
+        Baraja baraja = new Baraja(cuarentaCartas);
+        assertEquals(40, baraja.getCartasRestantes());
+    }
+
+    @Test
+    void robarCartaDevuelveLasCartasEnElOrdenDeLaLista() {
+        Baraja baraja = new Baraja(cuarentaCartas);
+        assertSame(cuarentaCartas.get(0), baraja.robarCarta());
+        assertSame(cuarentaCartas.get(1), baraja.robarCarta());
+        assertEquals(38, baraja.getCartasRestantes());
+    }
+
+    @Test
+    void elTriunfoEsLaUltimaCartaDeLaLista() {
+        Baraja baraja = new Baraja(cuarentaCartas);
+        assertSame(cuarentaCartas.get(39), baraja.getTriunfo());
+    }
+
+    @Test
+    void elTriunfoEsLaUltimaCartaEnRobarse() {
+        Baraja baraja = new Baraja(cuarentaCartas);
+        for (int i = 0; i < 39; i++) {
+            baraja.robarCarta();
+        }
+        assertSame(baraja.getTriunfo(), baraja.robarCarta());
+    }
+
+    @Test
+    void modificarLaListaOriginalNoAfectaALaBaraja() {
+        Baraja baraja = new Baraja(cuarentaCartas);
+        Carta primera = cuarentaCartas.get(0);
+        cuarentaCartas.clear();
+        assertEquals(40, baraja.getCartasRestantes());
+        assertSame(primera, baraja.robarCarta());
     }
 }
