@@ -43,6 +43,18 @@ public class Partida {
         this.jugadorEnTurno = jugador1;
     }
 
+    public Partida(Jugador jugador1, Jugador jugador2, Baraja baraja) {
+        this(jugador1, jugador2);
+    }
+
+    public int getCartasRestantes() {
+        return 0;
+    }
+
+    public Carta getTriunfo() {
+        return null;
+    }
+
     /**
      * Obtiene el primer jugador de la partida.
      *
