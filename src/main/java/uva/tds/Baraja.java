@@ -57,6 +57,7 @@ public class Baraja {
             }
         }
         this.cartas = new ArrayList<>(cartas);
+        this.triunfo = this.cartas.get(this.cartas.size() - 1);
     }
 
     /**
