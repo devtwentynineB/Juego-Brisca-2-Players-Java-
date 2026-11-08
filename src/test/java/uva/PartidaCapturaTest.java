@@ -96,11 +96,11 @@ class PartidaCapturaTest {
         luis.recibirCarta(dosCopas);
         luis.recibirCarta(cuatroEspadas);
 
-        // Baza 1: comienza Ana y gana Ana (as de copas)
+       
         partida.jugarCarta(ana, asCopas);
         partida.jugarCarta(luis, dosCopas);
 
-        // Baza 2: comienza Luis; palos distintos sin triunfo, gana el primero en jugar
+       
         partida.jugarCarta(luis, cuatroEspadas);
         partida.jugarCarta(ana, reyBastos);
 
