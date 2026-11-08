@@ -71,4 +71,11 @@ public class Jugador {
     public List<Carta> getMano() {
         return mano;
     }
+
+    public void capturar(Carta carta) {
+    }
+
+    public List<Carta> getCartasCapturadas() {
+        return new ArrayList<>();
+    }
 }
