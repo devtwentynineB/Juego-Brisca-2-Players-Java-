@@ -11,6 +11,7 @@ import java.util.List;
 public class Jugador {
     private String nombre;
     private List<Carta> mano;
+    private List<Carta> cartasCapturadas;
 
     /**
      * Crea un jugador con el nombre indicado.
@@ -26,6 +27,7 @@ public class Jugador {
 
         this.nombre = nombre;
         this.mano = new ArrayList<>();
+        this.cartasCapturadas = new ArrayList<>();
     }
 
     /**
@@ -73,9 +75,13 @@ public class Jugador {
     }
 
     public void capturar(Carta carta) {
+        if (carta == null) {
+            throw new IllegalArgumentException("La carta capturada no puede ser nula");
+        }
+        cartasCapturadas.add(carta);
     }
 
     public List<Carta> getCartasCapturadas() {
-        return new ArrayList<>();
+        return new ArrayList<>(cartasCapturadas);
     }
 }
