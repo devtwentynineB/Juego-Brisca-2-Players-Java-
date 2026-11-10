@@ -12,12 +12,14 @@ package uva.tds;
  * obtienen 60 puntos la partida termina en empate.
  * </p>
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 public class Puntuacion {
-
-    /** Suma de los puntos de las 40 cartas de la baraja. */
+  /** Suma de los puntos de las 40 cartas de la baraja. */
     public static final int PUNTOS_TOTALES = 120;
+
+    private final Jugador jugador1;
+    private final Jugador jugador2;
 
     /**
      * Crea la puntuación de los dos jugadores indicados.
@@ -28,6 +30,14 @@ public class Puntuacion {
      *                                  el mismo jugador
      */
     public Puntuacion(Jugador jugador1, Jugador jugador2) {
+        if (jugador1 == null || jugador2 == null) {
+            throw new IllegalArgumentException("Los jugadores no pueden ser nulos");
+        }
+        if (jugador1 == jugador2) {
+            throw new IllegalArgumentException("Los dos jugadores deben ser distintos");
+        }
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
     }
 
     /**
@@ -40,7 +50,14 @@ public class Puntuacion {
      *                                  los dos jugadores de esta puntuación
      */
     public int getPuntos(Jugador jugador) {
-        return 0;
+        if (jugador != jugador1 && jugador != jugador2) {
+            throw new IllegalArgumentException("El jugador no pertenece a la puntuación");
+        }
+        int puntos = 0;
+        for (Carta carta : jugador.getCartasCapturadas()) {
+            puntos += carta.getPuntos();
+        }
+        return puntos;
     }
 
     /**
@@ -49,7 +66,7 @@ public class Puntuacion {
      * @return puntos de los dos jugadores sumados
      */
     public int getPuntosTotales() {
-        return 0;
+        return getPuntos(jugador1) + getPuntos(jugador2);
     }
 
     /**
@@ -60,6 +77,10 @@ public class Puntuacion {
      * @throws IllegalStateException si la suma de los puntos no es 120
      */
     public void validarTotal() {
+        if (getPuntosTotales() != PUNTOS_TOTALES) {
+            throw new IllegalStateException(
+                    "Los puntos de ambos jugadores deben sumar " + PUNTOS_TOTALES);
+        }
     }
 
     /**
@@ -70,7 +91,8 @@ public class Puntuacion {
      * @throws IllegalStateException si la suma de los puntos no es 120
      */
     public boolean esEmpate() {
-        return false;
+        validarTotal();
+        return getPuntos(jugador1) == getPuntos(jugador2);
     }
 
     /**
@@ -81,6 +103,10 @@ public class Puntuacion {
      *                               partida ha terminado en empate
      */
     public Jugador getGanador() {
-        return null;
+        if (esEmpate()) {
+            throw new IllegalStateException("La partida ha terminado en empate");
+        }
+        return getPuntos(jugador1) > getPuntos(jugador2) ? jugador1 : jugador2;
     }
+
 }

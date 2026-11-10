@@ -10,7 +10,7 @@ package uva.tds;
  * el primer jugador.
  * </p>
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 public class Brisca {
 
