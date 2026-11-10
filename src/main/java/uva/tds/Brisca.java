@@ -14,60 +14,41 @@ package uva.tds;
  */
 public class Brisca {
 
-    /**
-     * Crea una partida con una baraja mezclada al azar y reparte las cartas
-     * iniciales.
-     *
-     * @param jugador1 primer jugador, que comienza la primera baza
-     * @param jugador2 segundo jugador
-     * @throws IllegalArgumentException si algún jugador es nulo, si ambos son el
-     *                                  mismo o si alguno tiene cartas en la mano
-     */
+    private static final int CARTAS_INICIALES = 3;
+    private static final int CARTAS_BARAJA = 40;
+
+    private final Partida partida;
+
     public Brisca(Jugador jugador1, Jugador jugador2) {
+        this(jugador1, jugador2, new Baraja());
     }
 
-    /**
-     * Crea una partida con la baraja indicada y reparte las cartas iniciales.
-     * Si la creación falla no se reparte ninguna carta.
-     *
-     * @param jugador1 primer jugador, que comienza la primera baza
-     * @param jugador2 segundo jugador
-     * @param baraja   baraja completa (40 cartas) de la que se roba
-     * @throws IllegalArgumentException si algún jugador o la baraja son nulos, si
-     *                                  ambos jugadores son el mismo, si alguno
-     *                                  tiene cartas en la mano o si la baraja no
-     *                                  tiene sus 40 cartas
-     */
     public Brisca(Jugador jugador1, Jugador jugador2, Baraja baraja) {
+        this.partida = new Partida(jugador1, jugador2, baraja);
+        validarEstadoInicial(jugador1, jugador2, baraja);
+        repartir(jugador1, baraja);
+        repartir(jugador2, baraja);
     }
 
-    /** @return primer jugador */
-    public Jugador getJugador1() {
-        return null;
+    private void validarEstadoInicial(Jugador jugador1, Jugador jugador2, Baraja baraja) {
+        if (!jugador1.getMano().isEmpty() || !jugador2.getMano().isEmpty()) {
+            throw new IllegalArgumentException("Los jugadores no pueden tener cartas al empezar");
+        }
+        if (baraja.getCartasRestantes() != CARTAS_BARAJA) {
+            throw new IllegalArgumentException("La baraja debe estar completa");
+        }
     }
 
-    /** @return segundo jugador */
-    public Jugador getJugador2() {
-        return null;
+    private void repartir(Jugador jugador, Baraja baraja) {
+        for (int i = 0; i < CARTAS_INICIALES; i++) {
+            jugador.recibirCarta(baraja.robarCarta());
+        }
     }
 
-    /** @return carta de triunfo, la última que se entrega */
-    public Carta getTriunfo() {
-        return null;
-    }
-
-    /** @return palo de triunfo de la partida */
-    public Palo getPaloTriunfo() {
-        return null;
-    }
-
-    /** @return número de cartas que quedan por robar */
-    public int getCartasRestantes() {
-        return 0;
-    }
-
-    /** @return jugador al que le corresponde jugar */
-    public Jugador getJugadorEnTurno() {
-        return null;
-    }
+    public Jugador getJugador1() { return partida.getJugador1(); }
+    public Jugador getJugador2() { return partida.getJugador2(); }
+    public Carta getTriunfo() { return partida.getTriunfo(); }
+    public Palo getPaloTriunfo() { return partida.getTriunfo().getPalo(); }
+    public int getCartasRestantes() { return partida.getCartasRestantes(); }
+    public Jugador getJugadorEnTurno() { return partida.getJugadorEnTurno(); }
 }
