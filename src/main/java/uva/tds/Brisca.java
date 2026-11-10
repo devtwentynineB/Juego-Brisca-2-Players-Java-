@@ -120,4 +120,35 @@ public class Brisca {
     public Jugador getJugadorEnTurno() {
         return partida.getJugadorEnTurno();
     }
+
+    /**
+     * Juega una carta en la partida actual.
+     *
+     * @param jugador jugador que juega la carta
+     * @param carta   carta que se juega
+     * @throws IllegalArgumentException si la jugada no es válida
+     * @throws IllegalStateException    si no es el turno del jugador
+     */
+    public void jugarCarta(Jugador jugador, Carta carta) {
+        partida.jugarCarta(jugador, carta);
+    }
+
+    /**
+     * Obtiene el número de bazas disputadas hasta el momento.
+     *
+     * @return bazas completadas
+     */
+    public int getBazasDisputadas() {
+        return (getJugador1().getCartasCapturadas().size()
+                + getJugador2().getCartasCapturadas().size()) / 2;
+    }
+
+    /**
+     * Indica si la partida ha terminado tras disputar las 20 bazas.
+     *
+     * @return true si se han jugado todas las bazas
+     */
+    public boolean estaFinalizada() {
+        return getBazasDisputadas() == 20;
+    }
 }

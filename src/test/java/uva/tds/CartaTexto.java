@@ -18,7 +18,10 @@ final class CartaTexto {
      * @return texto con el valor y el palo en minúsculas, como "5-bastos"
      */
     static String de(Carta carta) {
-        return "";
+        if (carta == null) {
+            throw new IllegalArgumentException("La carta no puede ser nula");
+        }
+        return carta.getValor() + "-" + carta.getPalo().name().toLowerCase();
     }
 
     /**
@@ -30,6 +33,29 @@ final class CartaTexto {
      *                                  palo no existe o si el valor no es válido
      */
     static Carta aCarta(String texto) {
-        return new Carta(Palo.OROS, 1);
+        if (texto == null || texto.isBlank()) {
+            throw new IllegalArgumentException("El texto de la carta no puede estar vacío");
+        }
+
+        String[] partes = texto.split("-", 2);
+        if (partes.length != 2 || partes[0].isBlank() || partes[1].isBlank()) {
+            throw new IllegalArgumentException("El texto debe tener formato valor-palo");
+        }
+
+        int valor;
+        try {
+            valor = Integer.parseInt(partes[0]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("El valor debe ser numérico", e);
+        }
+
+        Palo palo;
+        try {
+            palo = Palo.valueOf(partes[1].trim().toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("El palo no existe", e);
+        }
+
+        return new Carta(palo, valor);
     }
 }
