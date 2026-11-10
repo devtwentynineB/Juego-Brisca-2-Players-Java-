@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests de la creación de Brisca: reparto inicial y selección del triunfo.
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 class BriscaCreacionTest {
 

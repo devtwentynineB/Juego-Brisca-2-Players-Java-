@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests de la validación del total de 120 puntos, el empate y el ganador.
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 class PuntuacionResultadoTest {
 

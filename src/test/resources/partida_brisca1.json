@@ -1,0 +1,1351 @@
+{
+  "partida": {
+    "inicio": {
+      "jugador_inicial": "Ana",
+      "triunfo": "5-bastos",
+      "manos": {
+        "Ana": [
+          "11-espadas",
+          "11-bastos",
+          "7-espadas"
+        ],
+        "Luis": [
+          "7-bastos",
+          "6-copas",
+          "12-bastos"
+        ]
+      },
+      "mazo": [
+        "1-espadas",
+        "10-copas",
+        "5-copas",
+        "12-copas",
+        "5-oros",
+        "10-oros",
+        "3-oros",
+        "6-bastos",
+        "5-espadas",
+        "2-bastos",
+        "4-oros",
+        "4-bastos",
+        "6-oros",
+        "2-oros",
+        "3-copas",
+        "3-bastos",
+        "11-copas",
+        "4-copas",
+        "10-espadas",
+        "1-copas",
+        "10-bastos",
+        "2-copas",
+        "4-espadas",
+        "7-oros",
+        "1-bastos",
+        "6-espadas",
+        "12-espadas",
+        "12-oros",
+        "1-oros",
+        "11-oros",
+        "2-espadas",
+        "7-copas",
+        "3-espadas"
+      ]
+    },
+    "rondas": [
+      {
+        "numero": 1,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "11-bastos",
+              "11-espadas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "12-bastos",
+              "6-copas",
+              "7-bastos"
+            ]
+          },
+          "cartas_en_mazo": 33,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "11-espadas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "6-copas"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "11-espadas",
+            "6-copas"
+          ],
+          "puntos_baza": 3,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "1-espadas"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "10-copas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-copas",
+              "11-bastos",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-bastos",
+              "7-bastos"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 3,
+            "Luis": 0
+          }
+        }
+      },
+      {
+        "numero": 2,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "10-copas",
+              "11-bastos",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-bastos",
+              "7-bastos"
+            ]
+          },
+          "cartas_en_mazo": 31,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "7-bastos"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "11-bastos"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "7-bastos",
+            "11-bastos"
+          ],
+          "puntos_baza": 3,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "5-copas"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "12-copas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-copas",
+              "5-copas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-bastos",
+              "12-copas"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 6,
+            "Luis": 0
+          }
+        }
+      },
+      {
+        "numero": 3,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "10-copas",
+              "5-copas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-bastos",
+              "12-copas"
+            ]
+          },
+          "cartas_en_mazo": 29,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "5-copas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "12-bastos"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "5-copas",
+            "12-bastos"
+          ],
+          "puntos_baza": 4,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "5-oros"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "10-oros"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-copas",
+              "10-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-copas",
+              "5-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 6,
+            "Luis": 4
+          }
+        }
+      },
+      {
+        "numero": 4,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "10-copas",
+              "10-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-copas",
+              "5-oros"
+            ]
+          },
+          "cartas_en_mazo": 27,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "5-oros"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "10-oros"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "5-oros",
+            "10-oros"
+          ],
+          "puntos_baza": 2,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "3-oros"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "6-bastos"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-copas",
+              "3-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-copas",
+              "6-bastos"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 8,
+            "Luis": 4
+          }
+        }
+      },
+      {
+        "numero": 5,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "10-copas",
+              "3-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "1-espadas",
+              "12-copas",
+              "6-bastos"
+            ]
+          },
+          "cartas_en_mazo": 25,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "10-copas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "1-espadas"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "10-copas",
+            "1-espadas"
+          ],
+          "puntos_baza": 13,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "5-espadas"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "2-bastos"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "2-bastos",
+              "3-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "12-copas",
+              "5-espadas",
+              "6-bastos"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 4
+          }
+        }
+      },
+      {
+        "numero": 6,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "2-bastos",
+              "3-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "12-copas",
+              "5-espadas",
+              "6-bastos"
+            ]
+          },
+          "cartas_en_mazo": 23,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "12-copas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "3-oros"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "12-copas",
+            "3-oros"
+          ],
+          "puntos_baza": 14,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "4-oros"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "4-bastos"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "2-bastos",
+              "4-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "4-bastos",
+              "5-espadas",
+              "6-bastos"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 18
+          }
+        }
+      },
+      {
+        "numero": 7,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "2-bastos",
+              "4-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "4-bastos",
+              "5-espadas",
+              "6-bastos"
+            ]
+          },
+          "cartas_en_mazo": 21,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "4-oros"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "5-espadas"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "4-oros",
+            "5-espadas"
+          ],
+          "puntos_baza": 0,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "6-oros"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "2-oros"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "2-bastos",
+              "2-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "4-bastos",
+              "6-bastos",
+              "6-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 18
+          }
+        }
+      },
+      {
+        "numero": 8,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "2-bastos",
+              "2-oros",
+              "7-espadas"
+            ],
+            "Luis": [
+              "4-bastos",
+              "6-bastos",
+              "6-oros"
+            ]
+          },
+          "cartas_en_mazo": 19,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "6-bastos"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "2-bastos"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "6-bastos",
+            "2-bastos"
+          ],
+          "puntos_baza": 0,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "3-copas"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "3-bastos"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "2-oros",
+              "3-copas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "3-bastos",
+              "4-bastos",
+              "6-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 18
+          }
+        }
+      },
+      {
+        "numero": 9,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "2-oros",
+              "3-copas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "3-bastos",
+              "4-bastos",
+              "6-oros"
+            ]
+          },
+          "cartas_en_mazo": 17,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "2-oros"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "3-bastos"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "2-oros",
+            "3-bastos"
+          ],
+          "puntos_baza": 10,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "11-copas"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "4-copas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "3-copas",
+              "4-copas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "11-copas",
+              "4-bastos",
+              "6-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 28
+          }
+        }
+      },
+      {
+        "numero": 10,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "3-copas",
+              "4-copas",
+              "7-espadas"
+            ],
+            "Luis": [
+              "11-copas",
+              "4-bastos",
+              "6-oros"
+            ]
+          },
+          "cartas_en_mazo": 15,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "4-bastos"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "7-espadas"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "4-bastos",
+            "7-espadas"
+          ],
+          "puntos_baza": 0,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "10-espadas"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "1-copas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-espadas",
+              "3-copas",
+              "4-copas"
+            ],
+            "Luis": [
+              "1-copas",
+              "11-copas",
+              "6-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 28
+          }
+        }
+      },
+      {
+        "numero": 11,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "10-espadas",
+              "3-copas",
+              "4-copas"
+            ],
+            "Luis": [
+              "1-copas",
+              "11-copas",
+              "6-oros"
+            ]
+          },
+          "cartas_en_mazo": 13,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "4-copas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "1-copas"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "4-copas",
+            "1-copas"
+          ],
+          "puntos_baza": 11,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "10-bastos"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "2-copas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-espadas",
+              "2-copas",
+              "3-copas"
+            ],
+            "Luis": [
+              "10-bastos",
+              "11-copas",
+              "6-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 39
+          }
+        }
+      },
+      {
+        "numero": 12,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "10-espadas",
+              "2-copas",
+              "3-copas"
+            ],
+            "Luis": [
+              "10-bastos",
+              "11-copas",
+              "6-oros"
+            ]
+          },
+          "cartas_en_mazo": 11,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "6-oros"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "3-copas"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "6-oros",
+            "3-copas"
+          ],
+          "puntos_baza": 10,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "4-espadas"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "7-oros"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "10-espadas",
+              "2-copas",
+              "4-espadas"
+            ],
+            "Luis": [
+              "10-bastos",
+              "11-copas",
+              "7-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 49
+          }
+        }
+      },
+      {
+        "numero": 13,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "10-espadas",
+              "2-copas",
+              "4-espadas"
+            ],
+            "Luis": [
+              "10-bastos",
+              "11-copas",
+              "7-oros"
+            ]
+          },
+          "cartas_en_mazo": 9,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "10-espadas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "10-bastos"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "10-espadas",
+            "10-bastos"
+          ],
+          "puntos_baza": 4,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "1-bastos"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "6-espadas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "2-copas",
+              "4-espadas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-bastos",
+              "11-copas",
+              "7-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 53
+          }
+        }
+      },
+      {
+        "numero": 14,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "2-copas",
+              "4-espadas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-bastos",
+              "11-copas",
+              "7-oros"
+            ]
+          },
+          "cartas_en_mazo": 7,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "11-copas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "4-espadas"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "11-copas",
+            "4-espadas"
+          ],
+          "puntos_baza": 3,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "12-espadas"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "12-oros"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "12-espadas",
+              "2-copas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-bastos",
+              "12-oros",
+              "7-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 21,
+            "Luis": 56
+          }
+        }
+      },
+      {
+        "numero": 15,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "12-espadas",
+              "2-copas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-bastos",
+              "12-oros",
+              "7-oros"
+            ]
+          },
+          "cartas_en_mazo": 5,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "12-espadas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "7-oros"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "12-espadas",
+            "7-oros"
+          ],
+          "puntos_baza": 4,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "1-oros"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "11-oros"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "11-oros",
+              "2-copas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-bastos",
+              "1-oros",
+              "12-oros"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 25,
+            "Luis": 56
+          }
+        }
+      },
+      {
+        "numero": 16,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "11-oros",
+              "2-copas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-bastos",
+              "1-oros",
+              "12-oros"
+            ]
+          },
+          "cartas_en_mazo": 3,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "1-bastos"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "2-copas"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "1-bastos",
+            "2-copas"
+          ],
+          "puntos_baza": 11,
+          "roban": [
+            {
+              "jugador": "Ana",
+              "carta": "2-espadas"
+            },
+            {
+              "jugador": "Luis",
+              "carta": "7-copas"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "11-oros",
+              "2-espadas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-oros",
+              "12-oros",
+              "7-copas"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 25,
+            "Luis": 67
+          }
+        }
+      },
+      {
+        "numero": 17,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "11-oros",
+              "2-espadas",
+              "6-espadas"
+            ],
+            "Luis": [
+              "1-oros",
+              "12-oros",
+              "7-copas"
+            ]
+          },
+          "cartas_en_mazo": 1,
+          "triunfo_disponible": true
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "6-espadas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "1-oros"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "6-espadas",
+            "1-oros"
+          ],
+          "puntos_baza": 11,
+          "roban": [
+            {
+              "jugador": "Luis",
+              "carta": "3-espadas"
+            },
+            {
+              "jugador": "Ana",
+              "carta": "5-bastos"
+            }
+          ],
+          "manos_resultantes": {
+            "Ana": [
+              "11-oros",
+              "2-espadas",
+              "5-bastos"
+            ],
+            "Luis": [
+              "12-oros",
+              "3-espadas",
+              "7-copas"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 36,
+            "Luis": 67
+          }
+        }
+      },
+      {
+        "numero": 18,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "11-oros",
+              "2-espadas",
+              "5-bastos"
+            ],
+            "Luis": [
+              "12-oros",
+              "3-espadas",
+              "7-copas"
+            ]
+          },
+          "cartas_en_mazo": 0,
+          "triunfo_disponible": false
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "12-oros"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "5-bastos"
+          }
+        ],
+        "final": {
+          "ganador": "Ana",
+          "cartas_capturadas": [
+            "12-oros",
+            "5-bastos"
+          ],
+          "puntos_baza": 4,
+          "roban": [],
+          "manos_resultantes": {
+            "Ana": [
+              "11-oros",
+              "2-espadas"
+            ],
+            "Luis": [
+              "3-espadas",
+              "7-copas"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 40,
+            "Luis": 67
+          }
+        }
+      },
+      {
+        "numero": 19,
+        "inicio": {
+          "jugador_inicial": "Ana",
+          "manos": {
+            "Ana": [
+              "11-oros",
+              "2-espadas"
+            ],
+            "Luis": [
+              "3-espadas",
+              "7-copas"
+            ]
+          },
+          "cartas_en_mazo": 0,
+          "triunfo_disponible": false
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Ana",
+            "juega": "2-espadas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Luis",
+            "juega": "3-espadas"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "2-espadas",
+            "3-espadas"
+          ],
+          "puntos_baza": 10,
+          "roban": [],
+          "manos_resultantes": {
+            "Ana": [
+              "11-oros"
+            ],
+            "Luis": [
+              "7-copas"
+            ]
+          },
+          "puntos_acumulados": {
+            "Ana": 40,
+            "Luis": 77
+          }
+        }
+      },
+      {
+        "numero": 20,
+        "inicio": {
+          "jugador_inicial": "Luis",
+          "manos": {
+            "Ana": [
+              "11-oros"
+            ],
+            "Luis": [
+              "7-copas"
+            ]
+          },
+          "cartas_en_mazo": 0,
+          "triunfo_disponible": false
+        },
+        "jugadas": [
+          {
+            "turno": 1,
+            "jugador": "Luis",
+            "juega": "7-copas"
+          },
+          {
+            "turno": 2,
+            "jugador": "Ana",
+            "juega": "11-oros"
+          }
+        ],
+        "final": {
+          "ganador": "Luis",
+          "cartas_capturadas": [
+            "7-copas",
+            "11-oros"
+          ],
+          "puntos_baza": 3,
+          "roban": [],
+          "manos_resultantes": {
+            "Ana": [],
+            "Luis": []
+          },
+          "puntos_acumulados": {
+            "Ana": 40,
+            "Luis": 80
+          }
+        }
+      }
+    ],
+    "resumen_partida": {
+      "total_rondas": 20,
+      "resumen_por_jugador": {
+        "Ana": {
+          "bazas_ganadas": 8,
+          "cartas_totales": 16,
+          "ases_capturados": 2,
+          "treses_capturados": 0,
+          "total_puntos": 40
+        },
+        "Luis": {
+          "bazas_ganadas": 12,
+          "cartas_totales": 24,
+          "ases_capturados": 2,
+          "treses_capturados": 4,
+          "total_puntos": 80
+        }
+      },
+      "ganador": "Luis",
+      "diferencia_puntos": 40
+    }
+  }
+}

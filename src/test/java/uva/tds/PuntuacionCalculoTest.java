@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests de la creación de Puntuacion y del cálculo de puntos de cada jugador.
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 class PuntuacionCalculoTest {
 

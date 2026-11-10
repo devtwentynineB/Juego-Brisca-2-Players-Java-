@@ -8,7 +8,7 @@ import java.util.List;
  * conocido (oros, copas, espadas y bastos; 1-7, 10, 11, 12 en cada palo).
  * La última carta, y por tanto el triunfo, es el rey de bastos.
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 final class BriscaFixture {
 

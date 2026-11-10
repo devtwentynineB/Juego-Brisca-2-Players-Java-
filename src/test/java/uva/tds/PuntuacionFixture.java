@@ -7,7 +7,7 @@ import java.util.List;
  * terminada entre dos jugadores usando la baraja ordenada de BriscaFixture
  * (oros, copas, espadas y bastos; cada palo suma 30 puntos).
  *
- * @author tu_usuario
+ * @author bryaauc
  */
 final class PuntuacionFixture {
 

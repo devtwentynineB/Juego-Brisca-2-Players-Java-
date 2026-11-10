@@ -15,7 +15,7 @@ package uva.tds;
  * @author bryaauc
  */
 public class Puntuacion {
-  /** Suma de los puntos de las 40 cartas de la baraja. */
+    /** Suma de los puntos de las 40 cartas de la baraja. */
     public static final int PUNTOS_TOTALES = 120;
 
     private final Jugador jugador1;
@@ -50,14 +50,10 @@ public class Puntuacion {
      *                                  los dos jugadores de esta puntuación
      */
     public int getPuntos(Jugador jugador) {
-        if (jugador != jugador1 && jugador != jugador2) {
-            throw new IllegalArgumentException("El jugador no pertenece a la puntuación");
-        }
-        int puntos = 0;
-        for (Carta carta : jugador.getCartasCapturadas()) {
-            puntos += carta.getPuntos();
-        }
-        return puntos;
+        validarPertenencia(jugador);
+        return jugador.getCartasCapturadas().stream()
+                .mapToInt(Carta::getPuntos)
+                .sum();
     }
 
     /**
@@ -109,4 +105,9 @@ public class Puntuacion {
         return getPuntos(jugador1) > getPuntos(jugador2) ? jugador1 : jugador2;
     }
 
+    private void validarPertenencia(Jugador jugador) {
+        if (jugador != jugador1 && jugador != jugador2) {
+            throw new IllegalArgumentException("El jugador no pertenece a la puntuación");
+        }
+    }
 }
